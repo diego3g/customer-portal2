@@ -1,17 +1,17 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export function LayoutApp() {
   const navigate = useNavigate();
   const isAuthenticated = false;  
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isAuthenticated) {
       navigate('/app/dashboard')
     } else {
       navigate('/sign-in')
     }
-  }, [navigate])
+  }, [isAuthenticated, navigate])
   
   return (
     <div>
